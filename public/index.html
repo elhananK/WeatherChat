@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+   <meta charset="utf-8">
+   <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+   <link href="https://fonts.googleapis.com/css?family=Rubik:300,500,700" rel="stylesheet">
+   <title>Weather Chat</title>
+</head>
+
+<body>
+   <nav class="navbar navbar-light bg-light justify-content-between">
+      <a class="navbar-brand">Weather Chat</a>
+      <form class="form-inline">
+         <input class="form-control mr-sm-2" id="searchInp" type="search" placeholder="City" aria-label="Search">
+         <button class="btn btn-outline-success my-2 my-sm-0" id="searchBtn" type="button">Search</button>
+      </form>
+   </nav>
+
+   <div class="container-fluid"></div>
+
+   <script id="city-template" type="text/x-handlebars-template">
+      {{#each cities}}
+      <div class="card text-center city" data-id="{{ id }}" style="width: 22rem;">
+         <div class="card-body">
+            <a class="delete" id="deleteCity">
+               <i class="fa fa-times" aria-hidden="true"></i>
+            </a>
+            <h6 class="weather">
+               <span>{{ weather }}°</span>
+            </h6>
+            <h5 class="card-title">{{ name }}</h5>
+            <p class="card-text">
+               <span>{{ time }} on</span>
+               <span>{{ date }}</span>
+            </p>
+
+            <form class="form-inline">
+               <input id="commentInp" class="form-control mr-sm-2" type="text" placeholder="Comment" aria-label="Comment">
+               <button id="commentBtn" class="btn btn-outline-success my-2 my-sm-0" type="button">Comment</button>
+            </form>
+            <div>
+               <ul class="comments">
+                  {{#each comments}}
+                  <li>{{ comment }}</li>
+                  {{/each}}
+               </ul>
+            </div>
+
+         </div>
+      </div>
+      {{/each}}
+   </script>
+
+   <script src="jquery/dist/jquery.js"></script>
+   <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+   <script src="handlebars/dist/handlebars.js"></script>
+   <script src="main.js" type="module"></script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+{
+   "cities": [
+      {
+         "name": "Tel Aviv",
+         "weather": "32",
+         "time": "14:00",
+         "date": "3.5.18",
+         "age": "100",
+         "population": "450000"
+      },
+      {
+         "name": "Jerusalem",
+         "weather": "28",
+         "time": "14:00",
+         "date": "3.5.18",
+         "age": "3000",
+         "population": "600000"
+      },
+      {
+         "name": "Haifa",
+         "weather": "26",
+         "time": "14:00",
+         "date": "3.5.18",
+         "age": "500",
+         "population": "300000"
+      }
+   ]
+ }
+ 
