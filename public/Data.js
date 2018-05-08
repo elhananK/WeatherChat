@@ -21,18 +21,18 @@ class Data {
 
 
    removeCityFromArray(deleteCard) {
-      let $cardID = $(deleteCard).closest('.city').data().id;
+      let $cardID = $(deleteCard).closest('.city').data().id; // the data layer shouldnt touch the HTML. It should only handle data. This line of code should be part of controller;
       let cardIndex = this._findPostById(this.cities, $cardID);
       this.cities.splice(cardIndex, 1);
       this.saveToLocalStorage();
-      this.cities = this.getFromLocalStorage()
+      this.cities = this.getFromLocalStorage() 
    }
 
 
    comment(card) {
-      let $comment = $(card).prev('#commentInp').val();
+      let $comment = $(card).prev('#commentInp').val(); // shouldn't be here
       let comment = new Comment($comment);
-      let $cardID = $(card).closest('.city').data().id;
+      let $cardID = $(card).closest('.city').data().id; // shouldnt be here 
       let cardIndex = this._findPostById(this.cities, $cardID);
       
       this.cities[cardIndex].comments.push(comment);
