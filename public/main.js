@@ -16,6 +16,7 @@ $('#searchBtn').on('click', function () {
    let $cityName = $('#searchInp').val();
    let temp = api.getTemp($cityName)
    .then(function(cityAPI){
+      // Getting the data from the API should be part of the API class code. make your function in the APi class last promise so that it will return a City object
       let cTemp = cityAPI.query.results.channel.item.condition.temp;
       let date = data.getDate();
       let time = data.getTime();
@@ -24,8 +25,8 @@ $('#searchBtn').on('click', function () {
       let city = new City($cityName, cTemp, date, time);      
 
       data.pushToCities(city);
-      data.saveToLocalStorage();
-      data.cities = data.getFromLocalStorage();
+      data.saveToLocalStorage(); // Saving data is part of the data layer. it should be a private function  unknown to outsiders 
+      data.cities = data.getFromLocalStorage(); // Only the data layer should ever change the data! This line of code shouldn't be here
 
       view.renderCities(data);
       $('#searchInp').val("");
@@ -47,7 +48,7 @@ $('body').on('click', '#commentBtn', function () {
    view.renderCities(data);
 
 });
-
+ //Should be in a separate file
 class View {
     constructor() {}
  
